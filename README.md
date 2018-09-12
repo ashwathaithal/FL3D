@@ -1,2 +1,2 @@
 # README
-The code is coming soon.
+The code is on its way.
