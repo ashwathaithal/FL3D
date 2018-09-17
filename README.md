@@ -5,4 +5,3 @@ It contains two parts: 3D-FCN and VoxelNet as claimed in our paper.
 For detailed information of these two parts, please refer the sub-README in each dir.
 ## Weights
 The weights for supporting our experiment result will be released.
-## licence
