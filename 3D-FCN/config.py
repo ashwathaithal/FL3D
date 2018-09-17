@@ -11,9 +11,9 @@ from easydict import EasyDict as edict
 __C = edict()
 cfg = __C
 
-__C.TAG = "FCN-0009" #*  
-__C.MODEL = __C.TAG.split('-')[0]
-__C.LR = 0.001 #*
+__C.TAG = "FCN-0009"                    # TAG (It has to be FCN-xxxx)
+__C.MODEL = __C.TAG.split('-')[0]       
+__C.LR = 0.001                          # Learning Rate           
 __C.ALPHA = 1
 __C.BETA = 5
 __C.ETA = 10
@@ -21,11 +21,11 @@ __C.GAMMA = 5
 __C.BATCH_NUM = 1
 __C.MAX_EPOCH = 60
 # DATASET
-__C.DATA_DIR = '/usr/app/KittiData/'
+__C.DATA_DIR = '/usr/app/KittiData/'    # Change this line to your KITTI Dir
 __C.DATA_FORMAT='bin'
 __C.LABEL_TYPE='txt'
 __C.DATA_SETS_TYPE = 'kitti'
-__C.CLS = 'Car'
+__C.CLS = 'Car'                         # Change this line to 'Car' or 'Pedestrain' or 'Cyclist' for different type of prediction
 # SHAPE
 if __C.MODEL == "FCN":
     __C.RESOLUTION = 0.1    
@@ -43,19 +43,19 @@ elif __C.MODEL == "DENSENET":
     __C.Z=(-2.5, 1.5)
 # GPU CONFIGURATION
 __C.GPU_MEMORY_FRACTION=1.0
-__C.GPU_AVAILABLE='0'
+__C.GPU_AVAILABLE='0'                       # This line is with no use. If you want to set GPU Number, please set the environment variable by ``` export CUDA_VISIBLE_DEVICES='1' ```
 __C.GPU_USE_COUNT = len(__C.GPU_AVAILABLE.split(','))
 # UTILS
-__C.CORNER2CENTER_AVG = True  # average version or max version
+__C.CORNER2CENTER_AVG = True                # average version or max version
 # EVAL & TRAINING
-__C.LOAD_CHECKPT = "checkpoint-00111361"
+__C.LOAD_CHECKPT = "checkpoint-00111361"    # In train.py, it will be initilized from this checkpoint ; In test.py, it will test this checkpoint.
 # TRAINING
-__C.VALIDATE_INTERVAL = 10
+__C.VALIDATE_INTERVAL = 10                  
 # EVAL
-__C.EVAL_THRESHOLD = 0.8
+__C.EVAL_THRESHOLD = 0.8                    
 __C.BV_LOG_FACTOR = 4
 # NMS
-__C.ENABLE_NMS = True
+__C.ENABLE_NMS = True                       # Enable NMS or not.
 __C.RPN_NMS_POST_TOPK = 20
 __C.RPN_NMS_THRESH = 0.1
 # for camera and lidar coordination convert
