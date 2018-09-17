@@ -6,6 +6,10 @@ This part of code is for 3D-FCN section in our paper "Focal Loss in 3D Object De
 - cv2
 - numpy
 - easydict
+- Cython
+- shapely 
+- numba 
+- matplotlib
 ## Organization
 ```
 .
@@ -26,17 +30,24 @@ This part of code is for 3D-FCN section in our paper "Focal Loss in 3D Object De
 └── utils               // codes for basic operations
 ```
 ## Usage
+### Compile Cython and KITTI Evaluation Codes
+```
+cd 3D-FCN/
+./setup.sh
+```
 ### Configuration
 Parameters can be set in the **config.py**.
 The information for each parameters are detailed in this file.
 ### Train
 After sucessfully setting your **config.py**, you can train your 3D-FCN with
 ```
+cd 3D-FCN/
 python3 train.py
 ```
 ### Evaluate
 After sucessfully setting your **config.py**, you can test your 3D-FCN with
 ```
+cd 3D-FCN/
 python3 test.py         # test single checkpoint
-python3 test_all.py     # test all checkpoints
+# python3 test_all.py     # test all checkpoints
 ```

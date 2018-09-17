@@ -10,27 +10,27 @@ import os
 __C = edict()
 cfg = __C
 
-__C.TAG = "VoxelNet-Car-0008"
-__C.SINGLE_BATCH_SIZE = 1
-__C.LR=0.00001
+__C.TAG = "VoxelNet-Car-0008"                                   # TAG
+__C.SINGLE_BATCH_SIZE = 1                                       # BatchSize per GPU (VoxelNet codes support multi-tower training)
+__C.LR=0.00001                                                  # Learning Rate
 __C.ALPHA=1
 __C.BETA=10
 __C.ETA = 0.5
 __C.GAMMA=5
 __C.MAX_EPOCH = 60
-__C.LOAD_CHECKPT = "checkpoint-00111361"
+__C.LOAD_CHECKPT = "checkpoint-00111361"                        # This line is with no use. If you want to set GPU Number, please set the environment variable by ``` export CUDA_VISIBLE_DEVICES='1' ```
 # DATASET
 __C.DATA_SETS_TYPE = 'kitti'
-__C.DATA_DIR = '/usr/app/KittiData/'
+__C.DATA_DIR = '/usr/app/KittiData/'                            # Change this line to your KITTI Dir
 __C.CALIB_DIR = os.path.join(__C.DATA_DIR, "training/calib")
 
 # GPU ALLOCATION
-__C.GPU_AVAILABLE = '0'
+__C.GPU_AVAILABLE = '0'                                         # Change this line to config your gpu '0' or '0,1' (multi-tower training)
 __C.GPU_USE_COUNT = len(__C.GPU_AVAILABLE.split(','))
 __C.GPU_MEMORY_FRACTION = 1
 
 # SELECTED OBJECT
-__C.DETECT_OBJ = 'Car'  # Pedestrian/Cyclist
+__C.DETECT_OBJ = 'Car'                                       # Change this line to 'Car' or 'Pedestrain' or 'Cyclist' for different type of prediction
 if __C.DETECT_OBJ == 'Car':
     __C.X_MIN = 0
     __C.X_MAX = 70.4
